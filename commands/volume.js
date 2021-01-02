@@ -1,17 +1,22 @@
-exports.run = async (client, message, args) => {
+exports.run = async(client, message, args) => {
+    const channel = message.member.voice.channel;
+    if (!channel) return message.channel.send('You should join a voice channel before using this command!');
 
-    if (!message.member.voice.channel) return message.channel.send(`${client.emotes.error} - You're not in a voice channel !`);
+    let queue = message.client.queue.get(message.guild.id)
 
-    if (!client.player.getQueue(message)) return message.channel.send(`${client.emotes.error} - No music currently playing !`);
+    if(!args[0]) return message.channel.send({
+        embed: {
+            description: 'The current volume is set to: ' + queue.volume
+        }
+    })
 
-    if (!args[0]) return message.channel.send(`${client.emotes.error} - Please enter a number !`);
+    if(args[0] > 10) return message.channel.send('Well lets hope we meet in heaven :grin:')
 
-    if (isNaN(args[0]) || 100 < args[0] || args[0] <= 0) return message.channel.send(`${client.emotes.error} - Please enter a valid number (between 1 and 100) !`);
-
-    if (message.content.includes('-') || message.content.includes('+') || message.content.includes(',') || message.content.includes('.')) return message.channel.send(`${client.emotes.error} - Please enter a valid number !`);
-
-    client.player.setVolume(message, parseInt(args[0]));
-
-    message.channel.send(`${client.emotes.success} - Volume set to **${args.join(" ")}%** !`);
-
-};
+    queue.connection.dispatcher.setVolumeLogarithmic(args[0] / 5);
+    queue.volume = args[0]
+    message.channel.send({
+        embed: {
+            description: 'Volume is set to ' + args[0]
+        }
+    })
+}

@@ -1,17 +1,18 @@
-exports.run = async (client, message) => {
-
+exports.run = async(client, message) => {
     message.channel.send({
         embed: {
-            color: 'ORANGE',
-            author: { name: 'Help pannel' },
-            footer: { text: 'github.com/reconlx/music-bot' },
-            fields: [
-                { name: 'Bot', value: '`ping`' },
-                { name: 'Music', value: '`play`, `pause`, `resume`, `queue`, `clear-queue`, `shuffle`, `np`, `loop`, `volume`, `skip`, `stop`' },
-            ],
-            timestamp: new Date(),
-            description: `To use filters, ${client.config.prefix}filter (the filter). Example : ${client.config.prefix}filter 8D.`,
-        },
-    });
-
-};
+            title: 'Help',
+            description: `
+            +play <songName> - Play a song from youtube
+            +pause - pause music
+            +resume - resume music
+            +np - Get now playing song's info
+            +skip - Skip to next song
+            +stop - Stop playing music
+            +volume <value> - adjust volume of the music
+            +queue - to see the full song queue
+            `,
+            color: 'GREEN'
+        }
+    })
+}

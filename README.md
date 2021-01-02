@@ -1,84 +1,31 @@
-# Music-bot
 
-# youtube tutorial : https://youtu.be/JF6D12OxYNA
+<h1 align="center">Discordjs Music Bot - Advanced</h1>
+<h1 align="center"><img src ="https://github.com/Mercurydev986/Discordjs-MusicBot-Tutorial/blob/master/sound.gif?raw=true"></h1>
+ 
+ 
+## <img src="https://img.icons8.com/nolan/2x/youtube-music.png" width="25" height="25">Youtube Tutorial<img src="https://img.icons8.com/nolan/2x/youtube-music.png" width="25" height="25">
 
-A complete code to download for a music bot. Using a module (discord-player) 🎧
+https://www.youtube.com/watch?v=lqRRKQQ_D5g&t=19s
 
-Looking for a code for a music bot ? This fully open source code is made for your project !
-Warning, this code uses the v12 of the discord.js module. Previous versions such as (11.5.1, 11.5.0 or other) will not be supported.
+##  <img src="https://img.icons8.com/ultraviolet/2x/burn-cd.png" height="30" width = "30">Remix The Project<img src="https://img.icons8.com/ultraviolet/2x/burn-cd.png" height="30" width = "30">
+[![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/Mercurydev986/Discordjs-MusicBot-Tutorial/)
 
-### ⚡ Installation
+## <img src="https://img.icons8.com/ultraviolet/2x/user-group-man-woman.png" width="30" height="30">Made By<img src="https://img.icons8.com/ultraviolet/2x/user-group-man-woman.png" width="30" height="30">
 
-Well, let's start by downloading the code.
-Go to the folder `config` then the file `config.json`.
-For the bot to be able to start, please complete the file with your credentials as follows :
+Nithish#6593 - Owner | Developer
 
-```js
-{
-    "game": "GAME",
-    "prefix": "PREFIX",
-    "token_bot": "TOKEN"
-}
-```
+## <img src="https://img.icons8.com/nolan/2x/camera.png" height="30" width="30"> SCREENSHOTS<img src="https://img.icons8.com/nolan/2x/camera.png" height="30" width="30">
 
-Reminder :
+<img src="https://cdn.discordapp.com/attachments/764452688813228043/764452953767411712/unknown.png">
 
-- `game`, the status of the bot.
-- `prefix`, the prefix that will be set to use the bot.
-- `token_bot`, the token of the bot available on the [Discord Developers](https://discordapp.com/developers/applications) section.
+<img src="https://cdn.discordapp.com/attachments/764452688813228043/764453346689155083/unknown.png">
 
-To customize the emojis go to the file `emojis.json`.
-Emojis are already defined by default but you can modify them if you wish.
+<img src="https://cdn.discordapp.com/attachments/764452688813228043/764453472791298049/unknown.png">
 
-```js
-{
-    "music": ":musical_note:",
-    "queue": ":bar_chart:",
-    "error": ":x:",
-    "success": ":white_check_mark:"
-}
-```
+## <img src="https://img.icons8.com/nolan/2x/gold-bars.png" height ="30" width="30">SPECIALITY<img src="https://img.icons8.com/nolan/2x/gold-bars.png" height ="30" width="30">
 
-In the console, type `npm install` to install all dependencies.
+This music bot is programmed in the way that it will scrape the youtube website directly, which means No more annoying youtube-api-key is needed!
 
-To start the bot :
-
-```
-#With Node
-node index.js
-
-#With pm2
-pm2 start index.js --name "MusicBot"
-```
-
-All you have to do is turn on your bot !
-
-### 🎵 Music commands
-
-```
-play <name>, play music in a voice channel.
-pause, pause the current music.
-resume, puts the current music back on. 
-queue, see the next musics.
-clear-queue, delete the next music.
-shuffle, to mix the queue.
-np, see music in progress.
-loop, to enable or disable the repeat function.
-volume <1 - 100>, change the volume.
-skip, skip to next music.
-stop, stop all music.
-
-```
-
-### 💡 General commands
-
-```
-help, see the list of available orders.
-ping, see the bot latency.
-```
-
-### 🏓 Utilities (to change the code)
-
-Find all the functions available on the official code [right here](https://github.com/Androz2091/discord-player).
-
-This is used with [discord.js](https://www.npmjs.com/package/discord.js) and [discord-player](https://www.npmjs.com/package/discord-player).
+## CREDITS
+[@icrawl](https://github.com/iCrawl)
+Thanks to icrawl, queue system is partially adapted from icrawl's [Music Bot Repo](https://github.com/iCrawl/discord-music-bot)

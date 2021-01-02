@@ -1,11 +1,14 @@
-exports.run = async (client, message) => {
-
-    if (!message.member.voice.channel) return message.channel.send(`${client.emotes.error} - You're not in a voice channel !`);
-
-    if (!client.player.getQueue(message)) return message.channel.send(`${client.emotes.error} - No music currently playing !`);
-
-    client.player.resume(message);
-
-    message.channel.send(`${client.emotes.success} - Song ${client.player.getQueue(message).playing.title} **resumed** !`);
-
-};
+exports.run = async(client, message) => {
+    const channel = message.member.voice.channel;
+    if (!channel) return message.channel.send('You should join a voice channel before using this command!');
+    let queue = message.client.queue.get(message.guild.id)
+    if(!queue) return message.channel.send({
+        embed: {
+            description: 'There is nothing playing right now to resume!'
+        }
+    })
+    if(queue.playing !== false)
+    queue.connection.dispatcher.resume()
+    message.react('▶')
+    message.channel.send('Resumed The music!')
+}

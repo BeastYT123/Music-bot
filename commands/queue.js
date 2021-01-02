@@ -1,13 +1,21 @@
+const { MessageEmbed } = require('discord.js')
+
 exports.run = async (client, message) => {
-
-    if (!message.member.voice.channel) return message.channel.send(`${client.emotes.error} - You're not in a voice channel !`);
-
-    const queue = client.player.getQueue(message);
-
-    if (!client.player.getQueue(message)) return message.channel.send(`${client.emotes.error} - No songs currently playing !`);
-
-    message.channel.send(`**Server queue - ${message.guild.name} ${client.emotes.queue}**\nCurrent : ${queue.playing.title} | ${queue.playing.author}\n\n` + (queue.tracks.map((track, i) => {
-        return `**#${i + 1}** - ${track.title} | ${track.author} (requested by : ${track.requestedBy.username})`
-    }).slice(0, 5).join('\n') + `\n\n${queue.tracks.length > 5 ? `And **${queue.tracks.length - 5}** other songs...` : `In the playlist **${queue.tracks.length}** song(s)...`}`));
-
-};
+    const channel = message.member.voice.channel;
+    if (!channel) return message.channel.send('You should join a voice channel before using this command!');
+    const queue = message.client.queue.get(message.guild.id)
+    let status;
+    if(!queue) status = 'There is nothing in queue!'
+    else status = queue.songs.map(x => '• ' + x.title + ' -Requested by ' + `<@${x.requester.id}>`).join('\n')
+    if(!queue) np = status
+    else np = queue.songs[0].title
+    if(queue) thumbnail = queue.songs[0].thumbnail
+    else thumbnail = message.guild.iconURL()
+    let embed = new MessageEmbed()
+    .setTitle('Queue')
+    .setThumbnail(thumbnail)
+    .setColor('GREEN')
+    .addField('Now Playing', np, true)
+    .setDescription(status)
+    message.channel.send(embed)
+}
